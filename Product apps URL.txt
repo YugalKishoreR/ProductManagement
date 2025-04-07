@@ -1,0 +1,96 @@
+http://localhost:8085/products POST
+
+{
+  "productId":"PROD001" ,
+  "productName": "Cooper",
+  "brand": "Mini",
+  "category": "Car",
+  "price": 10000
+}
+{
+  "productId":"PROD002" ,
+  "productName": "Classic350",
+  "brand": "RoyalEnfield",
+  "category": "Bike",
+  "price": 20000
+}
+{
+  "productId":"PROD003" ,
+  "productName": "Meteor",
+  "brand": "RoyalEnfield",
+  "category": "Bike",
+  "price": 30000
+}
+{
+  "productId":"PROD004" ,
+  "productName": "Airpods",
+  "brand": "Apple",
+  "category": "Electronics",
+  "price": 40000
+}
+{
+  "productId":"PROD005" ,
+  "productName": "Ertiga",
+  "brand": "Suzuki",
+  "category": "Car",
+  "price": 50000
+}
+
+http://localhost:8085/products PUT
+
+{ "id":2,
+  "productId":"PROD002" ,
+  "productName": "Classic350",
+  "brand": "RoyalEnfield",
+  "category": "Bike",
+  "price": 500000
+}
+
+http://localhost:8085/products  GET
+http://localhost:8085/products/search POST
+
+{
+    "searchCriteriaList":[
+        {
+            "key": "brand",
+            "operation": "=",
+            "value": "Mini"
+        },
+        {
+            "key": "price",
+            "operation": "<",
+            "value": 50000
+        },
+		{
+            "key": "price",
+            "operation": ">",
+            "value": 100000
+        }
+    ]
+}
+
+http://localhost:8085/products/search?page=0&size=2
+http://localhost:8085/products/search?searchCriteria=Mini&page=0&size=2
+http://localhost:8085/products/search?searchCriteria=Mini&page=1&size=2
+http://localhost:8085/products/sort?sortBy=price
+
+
+
+
+
+GET http://localhost:8085/rating
+PUT http://localhost:8085/rating/1
+DELETE http://localhost:8085/rating/1
+POST http://localhost:8085/rating
+
+{
+  "pid": "PROD005", 
+  "rating": 4.5   
+}
+
+
+
+proRating------ProRating(id=0, product=Product(pid=0, productId=EL001, productName=Mixer grinder, brand=Cooper, category=Electronics, price=30000), rating=4.5)
+
+proRatingDTOProRatingDTO(id=0, productId=0, rating=4.5)
+
